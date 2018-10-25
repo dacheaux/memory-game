@@ -1,0 +1,49 @@
+.App {
+	text-align: center;
+}
+
+.App-header {
+	background-color: #282c34;
+	display: flex;
+	justify-content: center;
+	color: white;
+}
+
+.card {
+	width: calc(100% * 1 / 6 - 2rem);
+	padding-top: calc(100% * 1 / 6 - 2rem);
+	position: relative;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 0 2rem 2rem 0;
+}
+
+.square {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.stats {
+	font-size: 1.6rem;
+	line-height: 3rem;
+	margin: 2rem auto;
+}
+
+.game {
+	max-width: 90rem;
+	margin: 0 auto;
+}
+
+.space-right {
+	margin-right: 5rem;
+}

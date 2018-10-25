@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import Game from './Game';
+import '../styles/App.css';
+import Game from '../containers/Game';
 
 export default () => (
 	<div className="App">
