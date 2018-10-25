@@ -6,10 +6,12 @@ export function initGame() {
 	return { type: INIT_GAME };
 }
 
-export function flipUp(id, image) {
-	return { type: FLIP_UP, id, image };
+export function flipUp(id, image, firstGuess, turns) {
+	return {
+		type: FLIP_UP, id, image, firstGuess, turns,
+	};
 }
 
-export function flipDown(firstCard, secondCard) {
-	return { type: FLIP_DOWN, firstCard, secondCard };
+export function flipDown(firstGuess, secondGuess) {
+	return { type: FLIP_DOWN, firstGuess, secondGuess };
 }

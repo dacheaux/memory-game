@@ -31,9 +31,17 @@ const images = {
 
 const Card = (props) => {
 	const {
-		id, flippedUp, matched, gameComplete, onClick,
+		id,
+		flippedUp,
+		matched,
+		firstGuess,
+		turns,
+		gameComplete,
+		onClick,
 	} = props;
-	const onCardClicked = gameComplete ? null : () => onClick(id, props.image);
+	const onCardClicked = gameComplete
+		? null
+		: () => onClick(id, props.image, firstGuess, turns);
 	let { image } = props;
 	image = flippedUp || matched ? images[image] : backImg;
 	return (
@@ -54,6 +62,8 @@ Card.propTypes = {
 	image: PropTypes.string.isRequired,
 	flippedUp: PropTypes.bool.isRequired,
 	matched: PropTypes.bool.isRequired,
+	firstGuess: PropTypes.string.isRequired,
+	turns: PropTypes.number.isRequired,
 	onClick: PropTypes.func.isRequired,
 	gameComplete: PropTypes.bool.isRequired,
 };

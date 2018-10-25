@@ -7,23 +7,25 @@ import * as allActions from '../actions';
 class Game extends Component {
 	componentDidUpdate() {
 		const { game, action } = this.props;
-		const { firstCard, secondCard, openPair } = game;
+		const { firstGuess, secondGuess, openPair } = game;
 		clearTimeout(this.timeid);
 		if (openPair) {
 			this.timeid = setTimeout(
-				() => action.flipDown(firstCard, secondCard),
+				() => action.flipDown(firstGuess, secondGuess),
 				1000
 			);
 		}
 	}
 
 	render() {
-		const { game, action } = this.props;
-		const { turns, cards, gameComplete } = game;
+		const { game, cards, action } = this.props;
+		const { firstGuess, turns, gameComplete } = game;
 		const cardTiles = cards.map(card => (
 			<Card
 				{...card}
 				key={card.id}
+				firstGuess={firstGuess}
+				turns={turns}
 				gameComplete={gameComplete}
 				onClick={action.flipUp}
 			/>
@@ -52,6 +54,7 @@ class Game extends Component {
 
 const mapStateToProps = state => ({
 	game: state.get('game').toJS(),
+	cards: state.get('cards').toJS(),
 });
 
 const mapDispatchToProps = dispatch => ({
