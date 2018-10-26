@@ -1,14 +1,20 @@
-Install:
+# Memory Game
+Using React, Redux and Immutable.js
+
+### Install:
 ```
 npm install
 ```
 
-Build:
+### Build:
 ```
 npm build
 ```
 
-Start app:
+### Start app:
 ```
 npm start
 ```
+
+Demo
+[heroku](https://memory-elements.herokuapp.com)
