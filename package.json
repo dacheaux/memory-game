@@ -2,6 +2,10 @@
   "name": "memory-game",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+  	"node": "8.12.0",
+  	"npm": "6.4.1"
+  },
   "dependencies": {
     "immutable": "^3.8.2",
     "react": "^16.5.2",
@@ -30,7 +34,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "npx eslint -- ./src/.",
-    "eslint:fix": "npx eslint --fix ./src/."
+    "eslint:fix": "npx eslint --fix ./src/.",
+    "heroku-prebuild": "NPM_CONFIG_PRODUCTION=false"
   },
   "eslintConfig": {
     "extends": "react-app"
