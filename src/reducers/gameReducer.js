@@ -10,24 +10,17 @@ const initialState = {
 	gameComplete: false,
 };
 
-let firstGuess;
-let secondGuess;
-let openPair;
-let turns;
-let pairsMatched;
-let gameComplete;
-
 export default function (state = fromJS(initialState), action) {
 	switch (action.type) {
 	case INIT_GAME:
 		return fromJS(initialState);
-	case FLIP_UP:
-		firstGuess = state.get('firstGuess');
-		secondGuess = state.get('secondGuess');
-		openPair = state.get('openPair');
-		turns = state.get('turns');
-		pairsMatched = state.get('pairsMatched');
-		gameComplete = state.get('gameComplete');
+	case FLIP_UP: {
+		let firstGuess = state.get('firstGuess');
+		let secondGuess = state.get('secondGuess');
+		let openPair = state.get('openPair');
+		let turns = state.get('turns');
+		let pairsMatched = state.get('pairsMatched');
+		let gameComplete = state.get('gameComplete');
 		if (turns % 2) {
 			secondGuess = action.image;
 			if (firstGuess === secondGuess) {
@@ -50,15 +43,17 @@ export default function (state = fromJS(initialState), action) {
 			turns,
 			gameComplete,
 		});
-	case FLIP_DOWN:
-		firstGuess = state.get('firstGuess');
-		secondGuess = state.get('secondGuess');
-		openPair = state.get('openPair');
+	}
+	case FLIP_DOWN: {
+		const firstGuess = state.get('firstGuess');
+		const secondGuess = state.get('secondGuess');
+		let openPair = state.get('openPair');
 		if (secondGuess && secondGuess !== firstGuess) {
 			openPair = false;
 			return state.merge({ openPair });
 		}
 		return state;
+	}
 	default:
 		return state || initialState;
 	}
