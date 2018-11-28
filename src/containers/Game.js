@@ -7,9 +7,9 @@ import * as allActions from '../actions';
 class Game extends Component {
 	componentDidUpdate() {
 		const { game, action } = this.props;
-		const { firstGuess, secondGuess, openPair } = game;
+		const { firstGuess, secondGuess } = game;
 		clearTimeout(this.timeid);
-		if (openPair) {
+		if (secondGuess && secondGuess !== firstGuess) {
 			this.timeid = setTimeout(
 				() => action.flipDown(firstGuess, secondGuess),
 				1000
